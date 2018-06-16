@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Authorization Server</title>
+  <!-- Needed for mobile sites to work -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Style sheets -->
+  <link rel="stylesheet" type="text/css" href="../stylesheets/pure-min.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/base.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/index-modules.css">
+  <script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <h1>Authorization Server</h1>
+
+    <p>Welcome to OAuth 2.0. Try one of the grant types below.</p>
+
+    <h2>
+      <a href="http://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code</a>
+    </h2>
+    The authorization code grant type is used to obtain both access tokens and refresh tokens and is optimized for confidential
+    clients.
+    <pre>https://localhost:3000/oauth?redirect_uri=https://localhost:3000&response_type=code&client_id=abc123&scope=offline_access</pre>
+
+    <h2>
+      <a href="http://tools.ietf.org/html/rfc6749#section-4.2">Implicit</a>
+    </h2>
+    The implicit grant type is used to obtain access tokens (it does not support the issuance of refresh tokens) and is optimized
+    for public clients known to operate a particular redirection URI.
+    <pre>https://localhost:3000/oauth?redirect_uri=https://localhost:3000&response_type=token&client_id=abc123</pre>
+
+    <h2>
+      <a href="http://tools.ietf.org/html/rfc6749#section-4.3">Resource Owner Password Credentials</a>
+    </h2>
+    The resource owner password credentials grant type is suitable in cases where the resource owner has a trust relationship
+    with the client, such as the device operating system or a highly privileged application.
+    <pre>POST oauth/token HTTP/1.1 Host: https://localhost:3000
+Content-Type: application/x-www-form-urlencoded Authorization:
+Basic YWJjMTIzOnNzaC1zZWNyZXQ= grant_type=password&username=bob&password=secret&scope=offline_access
+    </pre>
+
+    <h2>
+      <a href="http://tools.ietf.org/html/rfc6749#section-4.4">Client Credentials</a>
+    </h2>
+    The client can request an access token using only its client credentials (or other supported means of authentication) when
+    the client is requesting access to the protected resources under its control, or those of another resource owner that
+    have been previously arranged with the authorization server. Open your browser's debug tools, and click the Submit Post
+    button below to begin the grant type.
+    <pre>POST oauth/token HTTP/1.1 Host: https://localhost:3000  
+Content-Type: application/x-www-form-urlencoded Authorization:
+Basic YWJjMTIzOnNzaC1zZWNyZXQ= grant_type=client_credentials
+    </pre>
+  </div>
+</body>
+
+</html>

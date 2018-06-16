@@ -1,0 +1,271 @@
+{
+	"variables": [],
+	"info": {
+		"name": "LX Oauth",
+		"_postman_id": "4a653a14-1fdc-ea50-a149-a00dcfaf32d2",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Password",
+			"request": {
+				"url": "http://localhost:3000/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "grant_type=password&username=test&password=test&client_id=2c9019fa0b2c4ac2bb54e3b23af583b1"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "RefreshToken",
+			"request": {
+				"url": "http://localhost:3000/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "grant_type=refresh_token&client_id=2c9019fa0b2c4ac2bb54e3b23af583b1&client_secret=xxxxx&refresh_token=9v4QN8zFHKLhcx32UA0J"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Client Credentials",
+			"request": {
+				"url": "http://localhost:3000/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "grant_type=client_credentials&client_id=2c9019fa0b2c4ac2bb54e3b23af583b1"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Code (code)",
+			"request": {
+				"url": "http://localhost:3000/oauth?response_type=code&redirect_uri=http://localhost:3000&client_id=2c9019fa0b2c4ac2bb54e3b23af583b1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Code (grant)",
+			"request": {
+				"url": "http://localhost:3000/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "grant_type=authorization_code&redirect_uri=http://localhost:3000&client_id=2c9019fa0b2c4ac2bb54e3b23af583b1&client_secret=Wst2a35X-jAXoX2FaqKVN-l5cV5QvZ4Rs0XJ1lX_Rc4&code=R5F3AUBiPnmtolxQ"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Implicit",
+			"request": {
+				"url": "http://localhost:3000/oauth?response_type=token&redirect_uri=http://localhost:3000&client_id=2c9019fa0b2c4ac2bb54e3b23af583b1&scope=photos,songs",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "grant_type=authorization_code&code=TeI3s43ias5Bs0MH&redirect_uri=http://localhost:3000&client_id=2c9019fa0b2c4ac2bb54e3b23af583b1&client_secret=XXXX"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Token introspection",
+			"request": {
+				"url": "http://localhost:3000/oauth/introspection",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2hhcmxlcyBCcm93bnNvbiIsInVzciI6LTEwMDAsImlhdCI6MTQ3ODUyMzc1MywiZXhwIjoxNDgyNTk0Mjc3MzEwLCJhdWQiOiJ0ZXN0IiwiaXNzIjoiTFMtQVMiLCJzdWIiOiJ0ZXN0In0.cxQfZVc26iFm3Ljw2OOfs0pMnYaz2wB5VGlz7qmJtLo&token_type_hint=access_token&id=2c9019fa0b2c4ac2bb54e3b23af583b1&secret=Wst2a35X-jAXoX2FaqKVN-l5cV5QvZ4Rs0XJ1lX_Rc4"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Token introspection wrong token",
+			"request": {
+				"url": "http://localhost:3000/oauth/introspection",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "token=JhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2hhcmxlcyBCcm93bnNvbiIsInVzciI6LTEwMDAsImlhdCI6MTQ3ODUyMzc1MywiZXhwIjoxNDgyNTk0Mjc3MzEwLCJhdWQiOiJ0ZXN0IiwiaXNzIjoiTFMtQVMiLCJzdWIiOiJ0ZXN0In0.cxQfZVc26iFm3Ljw2OOfs0pMnYaz2wB5VGlz7qmJtLo&token_type_hint=access_token&id=2c9019fa0b2c4ac2bb54e3b23af583b1&secret=Wst2a35X-jAXoX2FaqKVN-l5cV5QvZ4Rs0XJ1lX_Rc4"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Token introspection (refresh token)",
+			"request": {
+				"url": "http://localhost:3000/oauth/introspection",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "token=0lcEm538Cb49NBkxCkaY&token_type_hint=refresh_token&id=2c9019fa0b2c4ac2bb54e3b23af583b1&secret=Wst2a35X-jAXoX2FaqKVN-l5cV5QvZ4Rs0XJ1lX_Rc4"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Token introspection wrong (refresh token)",
+			"request": {
+				"url": "http://localhost:3000/oauth/introspection",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic cm9iZXJ0bzpteXBhc3N3b3Jk",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "token=0lcEm538Cb49NBkxCka&token_type_hint=refresh_token&id=2c9019fa0b2c4ac2bb54e3b23af583b1&secret=Wst2a35X-jAXoX2FaqKVN-l5cV5QvZ4Rs0XJ1lX_Rc4"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
